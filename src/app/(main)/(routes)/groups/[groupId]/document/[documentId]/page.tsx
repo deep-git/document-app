@@ -25,7 +25,7 @@ const GroupDocumentIdPage = async({ params }: { params: { groupId: string, docum
   return (
       <div className="flex flex-col justify-center items-center pb-40 w-full">
         {!group ? (
-          <div className="flex justify-center items-center min-h-screen text-[2em] text-primary text-wrap p-2">This document doesn't seem to exist within your account</div>
+          <div className="flex justify-center items-center min-h-screen text-[2em] text-primary text-wrap p-2">This document doesn&apos;t seem to exist within your account</div>
         ) : (
           <div className="w-[90%] lg:w-[796.8px] flex flex-col justify-center">
             <h1 className="text-[3em] mt-10">{groupDocument[0]["name"]}</h1>

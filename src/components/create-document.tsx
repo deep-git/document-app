@@ -71,7 +71,7 @@ const CreateDocument = ({ type, group }: CreateDocumentProps) => {
                   <DialogContent>
                     <DialogHeader>
                       <DialogTitle>Name your document</DialogTitle>
-                      <DialogDescription>Enter a name for your document, default will be set to 'New Document'</DialogDescription>
+                      <DialogDescription>Enter a name for your document, default will be set to &apos;New Document&apos;</DialogDescription>
                     </DialogHeader>
                     <div>
                       <Label>Name</Label>

@@ -47,7 +47,7 @@ const QuillSheet = ({ groupId, documentId, documentData, type }: { groupId?: str
         const q = new Quill(editor, { theme: "snow" });
         q.setContents(ops);
         setQuill(q)
-    }, []);
+    }, [ops]);
 
     if (!isMounted) {
         return null;

@@ -82,7 +82,7 @@ const PageHeading = ({ type, documents }: DocumentProps) => {
                 <DialogContent>
                   <DialogHeader>
                     <DialogTitle>Create Group</DialogTitle>
-                    <DialogDescription>Enter a name for your group, default will be set to 'New Group'</DialogDescription>
+                    <DialogDescription>Enter a name for your group, default will be set to &apos;New Group&apos;</DialogDescription>
                   </DialogHeader>
                   <div>
                     <Label>Name</Label>
