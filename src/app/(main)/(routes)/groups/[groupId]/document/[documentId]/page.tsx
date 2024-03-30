@@ -8,7 +8,7 @@ const GroupDocumentIdPage = async({ params }: { params: { groupId: string, docum
   let groupDocument = [];
 
   if (!user) {
-    throw new Error("No current user");
+    console.log("No current user");
   }
 
   const group = await prisma.group.findUnique({

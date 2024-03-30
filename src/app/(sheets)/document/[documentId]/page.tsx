@@ -7,7 +7,7 @@ const DocumentIdPage = async({ params }: { params: { documentId: string }}) => {
   const user = await getCurrentUser();
 
   if (!user) {
-    throw new Error("No current user");
+    console.log("No current user");
   }
 
   const document = await prisma.sheet.findUnique({

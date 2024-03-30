@@ -22,7 +22,7 @@ const Dashboard = async () => {
   const user = await getCurrentUser();
 
   if (!user) {
-    throw new Error("No current user");
+    console.log("No current user");
   }
 
   const documents = await prisma.sheet.findMany({
