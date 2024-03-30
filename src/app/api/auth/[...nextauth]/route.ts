@@ -1,10 +1,10 @@
 import bcrypt from "bcrypt";
-import NextAuth, { AuthOptions } from "next-auth";
+import NextAuth from "next-auth/next";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 
 import prisma from "@/lib/prismadb";
 import Credentials from "next-auth/providers/credentials";
-import { authOptions } from "@/app/actions/authOptions";
+import { authOptions } from "@/utils/authOptions";
 
 const handler = NextAuth(authOptions);
 

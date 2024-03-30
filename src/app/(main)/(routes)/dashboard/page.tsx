@@ -15,7 +15,6 @@ import prisma from "@/lib/prismadb"
 import { Search, Trash } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import DocumentCard from '@/components/document-card'
-import getDocuments from '@/app/actions/getDocuments'
 import DashboardContent from '@/components/dashboard-content'
 
 const Dashboard = async () => {
