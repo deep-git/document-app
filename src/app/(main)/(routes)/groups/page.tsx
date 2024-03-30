@@ -5,6 +5,7 @@ import DashboardSidebar from '@/components/navbar/dashboard-sidebar'
 import PageHeading from '@/components/page-heading'
 import { Separator } from '@/components/ui/separator'
 import React from 'react'
+import prisma from "@/lib/prismadb";
 
 const Groups = async () => {
 
@@ -12,20 +13,21 @@ const Groups = async () => {
 
   if (!user) {
     console.log("No current user");
+    return null;
   }
 
-  const documents = await prisma.sheet.findMany({
+  const documents = await prisma?.sheet.findMany({
     where: {
-      userId: user.id
+      userId: user?.id
     },
     orderBy: {
       updatedAt: "desc"
     }
   });
 
-  const groups = await prisma.group.findMany({
+  const groups = await prisma?.group.findMany({
     where: {
-      userId: user.id
+      userId: user?.id
     },
     orderBy: {
       updatedAt: "desc"

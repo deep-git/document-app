@@ -23,11 +23,12 @@ const Dashboard = async () => {
 
   if (!user) {
     console.log("No current user");
+    return null;
   }
 
   const documents = await prisma.sheet.findMany({
     where: {
-      userId: user.id
+      userId: user?.id
     },
     orderBy: {
       updatedAt: "desc"
