@@ -8,12 +8,12 @@ export const authOptions: AuthOptions = {
     adapter: PrismaAdapter(prisma),
     providers: [
         Credentials({
-            name: "credentials",
             credentials: {
-                email: { label: "email", type: "text" },
-                password: { label: "password", type: "password" },
+                username: {},
+                email: {},
+                password: {},
             },
-            async authorize(credentials: { email: string; password: string }) {
+            async authorize(credentials, req) {
                 if (!credentials?.email || !credentials?.password) {
                     throw new Error("Invalid Credentials");
                 }
@@ -28,7 +28,7 @@ export const authOptions: AuthOptions = {
                     throw new Error("Invalid Credentials");
                 }
 
-                const isCorrectPassword = await bcrypt.compare(credentials.password, user.hashedPassword);
+                const isCorrectPassword = await bcrypt.compare(credentials?.password, user?.hashedPassword);
 
                 if (!isCorrectPassword) {
                     throw new Error("Invalid Credentials");
@@ -41,6 +41,15 @@ export const authOptions: AuthOptions = {
     debug: process.env.NODE_ENV === "development",
     session: {
         strategy: "jwt"
+    },
+    callbacks: {
+        async jwt({ token, user }) {
+            if (user) token.id = user.id;
+            return token;
+        },
+    },
+    pages: {
+        signIn: "/login"
     },
     secret: process.env.NEXTAUTH_SECRET
 };
