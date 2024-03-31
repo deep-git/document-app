@@ -53,12 +53,12 @@ const QuillSheet = ({ groupId, documentId, documentData, type }: { groupId?: str
         return null;
     }
 
-  return (
-    <div className="flex w-full flex-col justify-center items-center md:items-start">
-        <Button className="mb-5 md:mr-auto" onClick={() => saveData()}>Save</Button>
-        <div id="container" ref={wrapperRef} className="w-full"></div>
-    </div>
-  )
+    return (
+        <div className="flex w-full flex-col justify-center items-center md:items-start">
+            <Button className="mb-5 md:mr-auto" onClick={() => saveData()}>Save</Button>
+            <div id="container" ref={wrapperRef} className="w-full"></div>
+        </div>
+    )
 }
 
 export default QuillSheet
