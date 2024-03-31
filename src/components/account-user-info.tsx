@@ -30,7 +30,7 @@ interface AccountUserInfoProps {
 
 const AccountUserInfo = ({ user }: AccountUserInfoProps) => {
 
-    const [rename, setRename] = useState(user.username);
+    const [rename, setRename] = useState(user?.username);
     const router = useRouter();
     const [isMounted, setIsMounted] = useState(false);
     const [changeImage, setChangeImage] = useState("");
@@ -102,8 +102,7 @@ const AccountUserInfo = ({ user }: AccountUserInfoProps) => {
                         endpoint="imageUploader"
                         onClientUploadComplete={(res) => {
                             // Do something with the response
-                            console.log("Files: ", res);
-                            setChangeImage(res[0].url);
+                            setChangeImage(res[0]?.url);
 
                         }}
                         onUploadError={(error: Error) => {
