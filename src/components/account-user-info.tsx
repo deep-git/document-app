@@ -70,45 +70,45 @@ const AccountUserInfo = ({ user }: AccountUserInfoProps) => {
         return null;
     }
 
-  return (
-    <div>
-        <div className="flex justify-center items-center">
+    return (
+        <div>
+            <div className="flex justify-center items-center">
                 <div className="flex justify-center items-center mt-20 gap-5 md:gap-10">
 
                     <Avatar className="w-16 h-16 md:w-32 md:h-32">
-                        <AvatarImage className="object-cover" src={user.image}/>
+                        <AvatarImage className="object-cover" src={user?.image} />
                         <AvatarFallback>
-                            <Image src="/default_profile_image.png" alt="Alt profile image" fill className="object-cover"/>
+                            <Image src="/default_profile_image.png" alt="Alt profile image" fill className="object-cover" />
                         </AvatarFallback>
                     </Avatar>
 
                     <div>
-                        <h2 className="text-[3em] md:text-[5em] text-primary">{user.username}</h2>
-                        <span className="text-slate-500">{user.email}</span>
+                        <h2 className="text-[3em] md:text-[5em] text-primary">{user?.username}</h2>
+                        <span className="text-slate-500">{user?.email}</span>
                     </div>
                 </div>
             </div>
             <div className="flex flex-col md:flex-row justify-center items-center gap-10">
                 {changeImage !== "" && (
                     <div className="flex flex-col justify-center items-center gap-5 mt-5">
-                        <Image src={changeImage} alt="Selected upload image" width={300} height={300}/>
+                        <Image src={changeImage} alt="Selected upload image" width={300} height={300} />
                         <Button onClick={() => handleSaveProfileImage()}>Save</Button>
                     </div>
                 )}
-                
+
                 <div className="flex flex-col items-center mt-5 gap-3">
                     <UploadButton
-                    className="text-white bg-primary w-44 rounded-md py-1"
+                        className="text-white bg-primary w-44 rounded-md py-1"
                         endpoint="imageUploader"
                         onClientUploadComplete={(res) => {
-                        // Do something with the response
-                        console.log("Files: ", res);
-                        setChangeImage(res[0].url);
+                            // Do something with the response
+                            console.log("Files: ", res);
+                            setChangeImage(res[0].url);
 
                         }}
                         onUploadError={(error: Error) => {
-                        // Do something with the error.
-                        console.log(error);
+                            // Do something with the error.
+                            console.log(error);
                         }}
                     />
 
@@ -118,13 +118,13 @@ const AccountUserInfo = ({ user }: AccountUserInfoProps) => {
                         </PopoverTrigger>
                         <PopoverContent side="top">
                             <Label>Edit username</Label>
-                            <Input className="mt-3" value={rename} onChange={(e) => setRename(e.target.value)}/>
+                            <Input className="mt-3" value={rename} onChange={(e) => setRename(e.target.value)} />
                             <div className="w-max mt-3 ml-auto">
                                 <Button onClick={() => handleSaveUsernameEdit()}>Save</Button>
                             </div>
                         </PopoverContent>
                     </Popover>
-                
+
 
                     <Dialog>
                         <DialogTrigger>
@@ -137,7 +137,7 @@ const AccountUserInfo = ({ user }: AccountUserInfoProps) => {
                             </DialogHeader>
 
                             <Label>Enter email to confirm deletion of account</Label>
-                            <Input placeholder="Enter email" value={confirmEmail} onChange={(e) => setConfirmEmail(e.target.value)} className={`${confirmEmail === user.email ? 'text-green-600' : 'text-red-600'}`}/>
+                            <Input placeholder="Enter email" value={confirmEmail} onChange={(e) => setConfirmEmail(e.target.value)} className={`${confirmEmail === user?.email ? 'text-green-600' : 'text-red-600'}`} />
 
                             <DialogFooter>
                                 <DialogClose asChild>
@@ -147,11 +147,11 @@ const AccountUserInfo = ({ user }: AccountUserInfoProps) => {
                             </DialogFooter>
                         </DialogContent>
                     </Dialog>
-                    
+
                 </div>
             </div>
-    </div>
-  )
+        </div>
+    )
 }
 
 export default AccountUserInfo
